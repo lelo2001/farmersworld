@@ -1,0 +1,32 @@
+{ 
+  "manifest_version": 2, 
+  "name": "农民世界监控器", 
+  "version": "1.0.0", 
+  "description": "农民世界监控器，监控非法指令的执行，对非法指令进行拦截", 
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+ 
+  "browser_action": {
+    "default_icon": "icon.png",
+    // 图标悬停时的标题，可选
+    "default_title": "农民世界拦截器"
+     
+  },
+  
+  // 权限申请
+  "permissions": [
+    "notifications", // 通知
+    "webRequest", // web请求
+    "webRequestBlocking", // 阻塞式web请求
+    "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+    "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+  ],
+  "background": {
+     "persistent": true,  // false时 The 'webRequest' API cannot be used with event pages.
+     "scripts": ["background.js"]
+  }
+ 
+}
